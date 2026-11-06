@@ -997,7 +997,7 @@ async function submitDonation(event) {
 
     try {
         // Mengirim data ke server backend Node.js (sekarang menggunakan url relatif)
-        const response = await fetch('http://localhost:3000/api/get-token', {
+        const response = await fetch('/api/get-token', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({

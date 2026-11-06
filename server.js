@@ -73,6 +73,13 @@ app.post('/api/get-token', async (req, res) => {
 });
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-    console.log(`Server Backend berjalan di port ${PORT}`);
-});
+
+// Hanya jalankan listen secara lokal jika bukan di production Vercel
+if (process.env.NODE_ENV !== 'production') {
+    app.listen(PORT, () => {
+        console.log(`Server Backend berjalan di port ${PORT}`);
+    });
+}
+
+// Export app agar bisa dieksekusi oleh sistem Serverless Vercel
+module.exports = app;
