@@ -3,6 +3,7 @@ const express = require('express');
 const cors = require('cors');
 const midtransClient = require('midtrans-client');
 require('dotenv').config();
+app.use(express.static(__dirname));
 
 const app = express();
 app.use(cors());
