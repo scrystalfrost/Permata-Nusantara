@@ -2,8 +2,6 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const midtransClient = require('midtrans-client');
-require('dotenv').config();
-app.use(express.static(__dirname));
 
 const app = express();
 app.use(cors());
@@ -13,14 +11,12 @@ app.use(express.static(__dirname)); // Melayani file statis (index.html, style.c
 // --- KONFIGURASI 2 PAYMENT GATEWAY MIDTRANS ---
 
 // 1. Gateway SSKKI (Untuk Donasi >= 1 Juta - Dapat Tanda Terima Resmi)
-// Ganti dengan Server Key Sandbox/Production SSKKI Anda
 let snapSSKKI = new midtransClient.Snap({
     isProduction : false, 
     serverKey : process.env.MIDTRANS_SERVER_KEY_SSKKI || 'SB-Mid-server-vXKswQYddoiV7qPjQw_2O~c~' 
 });
 
 // 2. Gateway Operasional (Untuk Donasi < 1 Juta - Tanpa Tanda Terima Resmi)
-// Ganti dengan Server Key Sandbox/Production Operasional Panti Anda
 let snapOperasional = new midtransClient.Snap({
     isProduction : false, 
     serverKey : process.env.MIDTRANS_SERVER_KEY_OPERASIONAL || 'SB-Mid-server-UGr7lv~4jMOe.MMzM8mBgbZB' 
