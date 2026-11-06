@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pembebasan Lahan 1.431 m² - Permata Nusantara x SSKKI</title>
+    <meta name="description" content="Fase I: Kampanye Pembebasan Lahan Panti Asuhan Bayi & Rumah Aman Ibu Hamil seluas 1.431 m². Donasi diawasi SSKKI dan dapat menjadi pengurang pajak SPT Tahunan.">
+    
+    <!-- Link ke File CSS Eksternal -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        navy: {
+                            700: '#234776',
+                            800: '#1a365d',
+                            900: '#0f2942',
+                            950: '#081829',
+                        },
+                        gold: {
+                            50: '#fefce8',
+                            100: '#fef9c3',
+                            200: '#fef08a',
+                            300: '#fde047',
+                            400: '#facc15',
+                            500: '#eab308',
+                            600: '#ca8a04',
+                            700: '#a16207',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body class="font-sans text-gray-800 antialiased bg-gray-50 selection:bg-gold-400 selection:text-navy-900">
+
+    <!-- ========================================== -->
+    <!-- NAVBAR -->
+    <!-- ========================================== -->
+    <nav id="mainNav" class="fixed w-full bg-white shadow-sm z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Brand Logos -->
+                <a href="#" class="flex items-center space-x-3 sm:space-x-4 group">
+                    <div class="flex items-center space-x-2.5">
+                        <!-- PERBAIKAN LOGO: Menggunakan h-10 w-auto dan shrink-0 agar proporsional -->
+                        <img src="Logo SSKKI.png" alt="Logo SSKKI" class="h-10 w-auto object-contain shrink-0">
+                        <div class="flex flex-col">
+                            <span class="font-extrabold text-navy-900 text-base sm:text-lg leading-none tracking-tight">SSKKI</span>
+                            <span class="text-[10px] text-gray-500 font-medium tracking-wider uppercase">Lembaga Resmi</span>
+                        </div>
+                    </div>
+                    <div class="w-px h-8 bg-gray-200"></div>
+                    <div class="flex items-center space-x-2.5">
+                        <!-- PERBAIKAN LOGO: Menggunakan h-10 w-auto dan shrink-0 agar proporsional -->
+                        <img src="Logo Permata Nusantara.jpg" alt="Logo Permata Nusantara" class="h-10 w-auto object-contain shrink-0">
+                        <div class="flex flex-col">
+                            <span class="font-extrabold text-gray-900 text-sm sm:text-base leading-none tracking-tight">Permata Nusantara</span>
+                            <span class="text-[10px] text-pink-600 font-semibold tracking-wider uppercase">Rumah Aman & LKSA</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex space-x-7 items-center">
+                    <a href="#urgensi" class="text-gray-600 hover:text-navy-900 font-medium text-sm transition-colors">Urgensi</a>
+                    <a href="#lokasi" class="text-gray-600 hover:text-navy-900 font-medium text-sm transition-colors">Lokasi</a>
+                    <a href="#transparansi" class="text-gray-600 hover:text-navy-900 font-medium text-sm transition-colors">Alokasi Dana</a>
+                    <a href="#donasi" class="text-gray-600 hover:text-navy-900 font-medium text-sm transition-colors">Paket Lahan</a>
+                    <a href="#legalitas" class="text-gray-600 hover:text-navy-900 font-medium text-sm transition-colors">Legalitas</a>
+                    <a href="#donasi" class="bg-red-600 hover:bg-red-700 text-white font-bold text-sm px-6 py-3 rounded-full transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5 flex items-center">
+                        <i class="ph-fill ph-hand-heart mr-2 text-lg"></i> Donasi Sekarang
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="lg:hidden flex items-center">
+                    <button onclick="toggleMobileMenu()" aria-label="Buka Menu" class="text-navy-900 hover:text-red-600 p-2 rounded-xl focus:outline-none transition-colors">
+                        <i id="mobileMenuIcon" class="ph ph-list text-3xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobileMenu" class="hidden lg:hidden bg-white border-t border-gray-100 shadow-xl px-4 pt-3 pb-6 space-y-2">
+            <a href="#urgensi" onclick="toggleMobileMenu()" class="block px-4 py-2.5 rounded-xl text-gray-700 hover:bg-gray-50 font-medium">Urgensi Rumah Aman</a>
+            <a href="#lokasi" onclick="toggleMobileMenu()" class="block px-4 py-2.5 rounded-xl text-gray-700 hover:bg-gray-50 font-medium">Lokasi Pembangunan</a>
+            <a href="#transparansi" onclick="toggleMobileMenu()" class="block px-4 py-2.5 rounded-xl text-gray-700 hover:bg-gray-50 font-medium">Rincian Alokasi Dana</a>
+            <a href="#donasi" onclick="toggleMobileMenu()" class="block px-4 py-2.5 rounded-xl text-gray-700 hover:bg-gray-50 font-medium">Katalog Paket Lahan</a>
+            <a href="#legalitas" onclick="toggleMobileMenu()" class="block px-4 py-2.5 rounded-xl text-gray-700 hover:bg-gray-50 font-medium">Legalitas & Pengurang Pajak</a>
+            <div class="pt-2">
+                <a href="#donasi" onclick="toggleMobileMenu()" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3.5 rounded-xl transition-colors shadow-md flex items-center justify-center">
+                    <i class="ph-fill ph-hand-heart mr-2 text-lg"></i> Donasi Sekarang
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ========================================== -->
+    <!-- HERO SECTION -->
+    <!-- ========================================== -->
+    <section class="relative pt-28 pb-24 lg:pt-36 lg:pb-36 overflow-hidden min-h-screen flex items-center bg-blueprint">
+        <!-- Ambient Overlays -->
+        <div class="absolute inset-0 bg-gradient-to-b from-navy-950/60 via-navy-900/75 to-navy-900 z-0"></div>
+        <div class="absolute -top-24 -right-24 w-96 h-96 bg-gold-500/10 rounded-full blur-3xl z-0"></div>
+        <div class="absolute bottom-0 left-10 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl z-0"></div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Hero Left Content -->
+                <div class="lg:col-span-7 text-white">
+                    <div class="inline-flex items-center px-3.5 py-1.5 rounded-full bg-blue-950/80 border border-gold-500/40 text-gold-400 text-xs sm:text-sm font-semibold tracking-wide mb-6 uppercase shadow-sm">
+                        <span class="w-2 h-2 rounded-full bg-gold-400 animate-ping mr-2.5"></span>
+                        Fase I: Pembebasan Lahan 1.431 m²
+                    </div>
+                    <h1 class="text-3xl sm:text-5xl lg:text-[54px] font-extrabold tracking-tight mb-6 leading-[1.15]">
+                        Kampanye Pembebasan Lahan <span class="text-gold-400">Panti Asuhan Bayi</span> & Rumah Aman Ibu Hamil
+                    </h1>
+                    <p class="text-base sm:text-lg lg:text-xl text-gray-300 mb-8 max-w-2xl leading-relaxed">
+                        Bantu kami membebaskan lahan seluas <strong class="text-white">1.431 m²</strong> untuk membangun fasilitas perlindungan bagi mereka yang paling rentan. Setiap meter persegi yang Anda bebaskan menyelamatkan nyawa dan masa depan generasi baru.
+                    </p>
+
+                    <!-- Quick Trust Badges -->
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-9 pt-2 border-t border-white/10">
+                        <div class="flex items-center space-x-2.5">
+                            <i class="ph-fill ph-check-circle text-gold-400 text-xl shrink-0"></i>
+                            <span class="text-xs sm:text-sm text-gray-200 font-medium">Pengurang Pajak SPT Resmi</span>
+                        </div>
+                        <div class="flex items-center space-x-2.5">
+                            <i class="ph-fill ph-shield-check text-gold-400 text-xl shrink-0"></i>
+                            <span class="text-xs sm:text-sm text-gray-200 font-medium">Diaudit & Diawasi SSKKI</span>
+                        </div>
+                        <div class="flex items-center space-x-2.5 col-span-2 sm:col-span-1">
+                            <i class="ph-fill ph-lock-key text-gold-400 text-xl shrink-0"></i>
+                            <span class="text-xs sm:text-sm text-gray-200 font-medium">Protokol Zero-Face Exposure</span>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#donasi" class="bg-red-600 hover:bg-red-700 text-white text-center font-bold text-lg px-8 py-4 rounded-full transition-all shadow-[0_0_25px_rgba(220,38,38,0.4)] hover:shadow-[0_0_35px_rgba(220,38,38,0.6)] transform hover:-translate-y-0.5 flex items-center justify-center">
+                            Bebaskan Lahan Sekarang <i class="ph-bold ph-arrow-right ml-2"></i>
+                        </a>
+                        <button onclick="openCustomModal()" class="bg-white/10 hover:bg-white/20 text-white text-center font-semibold text-lg px-8 py-4 rounded-full border border-white/25 transition-colors backdrop-blur-sm flex items-center justify-center">
+                            <i class="ph ph-ruler mr-2 text-gold-400 text-xl"></i> Hitung Luas Custom (m²)
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Hero Right Tracker Widget -->
+                <div class="lg:col-span-5">
+                    <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-2xl relative overflow-hidden border border-gray-100">
+                        <div class="absolute top-0 left-0 w-full h-2.5 bg-gradient-to-r from-gold-400 via-gold-500 to-red-600"></div>
+                        
+                        <div class="flex justify-between items-start mb-2">
+                            <div>
+                                <span class="text-xs font-bold uppercase tracking-wider text-gold-600 bg-gold-50 px-2.5 py-1 rounded-md border border-gold-200">Status Kampanye Aktif</span>
+                                <h3 class="text-navy-900 font-extrabold text-2xl mt-2">Progres Pembebasan Lahan</h3>
+                            </div>
+                            <div class="w-12 h-12 rounded-2xl bg-navy-900 text-gold-400 flex items-center justify-center shrink-0 shadow-md">
+                                <i class="ph-fill ph-map-pin-line text-2xl"></i>
+                            </div>
+                        </div>
+                        <p class="text-gray-500 text-sm mb-6">Berakhir saat seluruh target lahan 1.431 m² terdanai penuh</p>
+                        
+                        <!-- Main Progress Numbers -->
+                        <div class="bg-gray-50 rounded-2xl p-5 border border-gray-200/80 mb-6">
+                            <div class="flex justify-between items-baseline mb-2">
+                                <div>
+                                    <span id="meterCounter" class="text-navy-900 font-black text-3xl sm:text-4xl">0 m²</span>
+                                    <span class="text-xs sm:text-sm text-gray-500 font-semibold ml-1">Terdanai</span>
+                                </div>
+                                <div class="text-right">
+                                    <span class="text-xs text-gray-400 block uppercase font-bold">Target Luas</span>
+                                    <span class="text-navy-900 font-bold text-lg">1.431 m²</span>
+                                </div>
+                            </div>
+
+                            <!-- Progress Bar -->
+                            <div class="w-full bg-gray-200 rounded-full h-4 overflow-hidden p-0.5 my-3">
+                                <div id="progressBar" class="progress-shimmer h-3 rounded-full w-[2%] transition-all duration-1000"></div>
+                            </div>
+
+                            <div class="flex justify-between items-center text-xs sm:text-sm pt-1">
+                                <span id="rupiahCounter" class="text-gray-600 font-semibold">Rp 0 terkumpul</span>
+                                <span class="font-extrabold text-navy-900">Target: Rp 1,2 Miliar</span>
+                            </div>
+                        </div>
+
+                        <!-- Google Maps Dihapus dari Sini agar lebih rapi -->
+
+                        <button onclick="openCheckoutModal('Paket Paripurna 1 m² All-In', 1, 850000)" class="w-full bg-navy-900 hover:bg-navy-800 text-white font-bold py-3.5 rounded-xl transition-all shadow-md flex items-center justify-center group">
+                            Mulai Bebaskan 1 m² Pertama <i class="ph-bold ph-caret-right ml-1.5 group-hover:translate-x-1 transition-transform text-gold-400"></i>
+                        </button>
+                        
+                        <div class="mt-5 pt-4 border-t border-gray-100 flex items-center justify-center space-x-2 text-xs sm:text-sm text-gray-600 font-medium">
+                            <i class="ph-fill ph-shield-check text-green-600 text-lg"></i>
+                            <span>100% Dana diawasi & diaudit resmi oleh SSKKI</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- THE URGENCY SECTION -->
+    <!-- ========================================== -->
+    <section id="urgensi" class="py-24 bg-navy-900 text-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-gold-400 font-bold tracking-wider uppercase text-xs sm:text-sm mb-2 block">Misi Kemanusiaan</span>
+                <h2 class="text-white font-extrabold text-3xl md:text-4xl mb-4">Mengapa Rumah Aman Ini Mendesak?</h2>
+                <div class="w-24 h-1.5 bg-gold-500 mx-auto rounded-full mb-6"></div>
+                <p class="text-gray-300 text-base sm:text-lg leading-relaxed">
+                    Lahan seluas 1.431 m² ini bukan sekadar tanah kosong. Ini adalah kanvas keselamatan tempat kami memberikan kehidupan kedua bagi bayi terlantar dan ibu hamil yang menghadapi krisis.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="bg-navy-800/90 rounded-2xl p-8 border border-navy-700 hover:border-gold-400 transition-all duration-300 flex flex-col">
+                    <div class="w-16 h-16 bg-blue-900/50 text-blue-400 rounded-2xl flex items-center justify-center mb-6 border border-blue-800">
+                        <i class="ph ph-baby text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Penyelamatan Bayi Baru Lahir</h3>
+                    <p class="text-gray-300 leading-relaxed text-sm sm:text-base flex-grow">
+                        Menyediakan pengasuhan alternatif berstandar LKSA (Lembaga Kesejahteraan Sosial Anak) untuk mencegah penelantaran bayi baru lahir serta memastikan tumbuh kembang dan hak asuh yang layak.
+                    </p>
+                </div>
+
+                <!-- Feature 2 (Highlighted Protocol) -->
+                <div class="bg-navy-800 rounded-2xl p-8 border-2 border-gold-500 transition-all duration-300 relative overflow-hidden shadow-[0_0_25px_rgba(234,179,8,0.15)] flex flex-col transform md:-translate-y-2">
+                    <div class="absolute top-0 right-0 bg-red-600 text-white text-xs font-bold px-3.5 py-1.5 rounded-bl-xl uppercase tracking-wider">
+                        Protokol Utama
+                    </div>
+                    <div class="w-16 h-16 bg-red-900/30 text-red-400 rounded-2xl flex items-center justify-center mb-6 border border-red-800/50">
+                        <i class="ph ph-mask-happy text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Protokol Zero-Face Exposure</h3>
+                    <p class="text-gray-300 leading-relaxed text-sm sm:text-base flex-grow">
+                        Identitas dan wajah asli ibu hamil di luar nikah serta penghuni panti dijaga dengan <strong class="text-gold-400">anonimitas penuh</strong> demi keamanan psikologis, pemulihan martabat, dan privasi mereka.
+                    </p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="bg-navy-800/90 rounded-2xl p-8 border border-navy-700 hover:border-gold-400 transition-all duration-300 flex flex-col">
+                    <div class="w-16 h-16 bg-green-900/30 text-green-400 rounded-2xl flex items-center justify-center mb-6 border border-green-800/50">
+                        <i class="ph ph-house-line text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Pemulihan Psikososial & Medis</h3>
+                    <p class="text-gray-300 leading-relaxed text-sm sm:text-base flex-grow">
+                        Menciptakan lingkungan bimbingan konseling, medis, dan spiritual yang suportif bagi ibu hamil yang menghadapi krisis, sehingga mencegah tindakan aborsi tidak aman.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- NEW SECTION: LOKASI & GOOGLE MAPS -->
+    <!-- ========================================== -->
+    <section id="lokasi" class="py-24 bg-gray-50 border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <!-- Teks Info Lokasi -->
+                <div>
+                    <span class="text-gold-600 font-bold tracking-wider uppercase text-xs sm:text-sm mb-2 block">Survei Lahan</span>
+                    <h2 class="text-navy-900 font-extrabold text-3xl md:text-4xl mb-6 leading-tight">Lokasi Strategis Rencana Pembangunan</h2>
+                    <p class="text-gray-600 text-base sm:text-lg mb-8 leading-relaxed">
+                        Lahan seluas <strong>1.431 m²</strong> ini berlokasi di lingkungan yang tenang dan mudah diakses. Sangat ideal untuk menciptakan suasana suportif demi pemulihan psikologis dan tumbuh kembang anak-anak panti asuhan.
+                    </p>
+                    
+                    <div class="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm flex items-start space-x-4">
+                        <div class="w-12 h-12 rounded-xl bg-red-50 text-red-600 flex items-center justify-center shrink-0">
+                            <i class="ph-fill ph-map-pin text-2xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-navy-900 text-base mb-1">Titik Koordinat Lokasi</h4>
+                            <p class="text-sm text-gray-500 mb-2">Area DI Yogyakarta (Koordinat Peta Terlampir)</p>
+                            <!-- Anda bisa mengganti '#' dengan link langsung ke aplikasi Google Maps -->
+                            <a href="#" class="inline-flex items-center text-sm font-bold text-red-600 hover:text-red-700 transition-colors">
+                                Buka di Aplikasi Maps <i class="ph-bold ph-arrow-up-right ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Google Maps Iframe Eksklusif (Besar) -->
+                <div class="relative">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-gold-400 to-red-500 rounded-3xl blur opacity-25"></div>
+                    <div class="relative rounded-3xl overflow-hidden shadow-xl border-4 border-white h-[400px] bg-gray-200">
+                        <iframe src="https://www.google.com/maps/embed?pb=!4v1793946798466!6m8!1m7!1sz0ZkGJK1JLwoo7ZWV1i2-g!2m2!1d-7.61157999320992!2d110.4184427045873!3f90.94095108240792!4f-5.102193007828191!5f0.7820865974627469" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- TRANSPARANSI ALOKASI DANA SECTION -->
+    <!-- ========================================== -->
+    <section id="transparansi" class="py-20 bg-white border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-gradient-to-br from-navy-900 to-navy-800 rounded-3xl p-8 md:p-12 text-white shadow-xl relative overflow-hidden">
+                <div class="absolute right-0 bottom-0 opacity-5 pointer-events-none">
+                    <i class="ph-fill ph-Buildings text-[260px]"></i>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
+                    <div class="lg:col-span-5">
+                        <span class="text-gold-400 font-bold text-xs uppercase tracking-widest block mb-2">Transparansi Tata Kelola</span>
+                        <h3 class="text-2xl sm:text-3xl font-extrabold mb-4 leading-tight">Mengapa Nilai Donasi All-In Rp 850.000 / m²?</h3>
+                        <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
+                            Agar lahan seluas 1.431 m² dapat segera dibalik nama dan sah secara hukum menjadi milik yayasan tanpa membebani dana operasional panti, setiap meter persegi mencakup harga tanah murni beserta seluruh kewajiban legalitasnya.
+                        </p>
+                    </div>
+
+                    <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <!-- Komponen 1 -->
+                        <div class="bg-white/10 backdrop-blur-sm border border-white/15 rounded-2xl p-6">
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="text-xs font-bold uppercase tracking-wider text-blue-300 bg-blue-950/60 px-3 py-1 rounded-full">88,2% Alokasi</span>
+                                <i class="ph-fill ph-map-trifold text-2xl text-gold-400"></i>
+                            </div>
+                            <div class="text-2xl sm:text-3xl font-black text-white mb-1">Rp 750.000</div>
+                            <div class="text-sm font-bold text-gold-400 mb-2">Harga Tanah Pokok Murni / m²</div>
+                            <p class="text-xs text-gray-300 leading-relaxed">
+                                Dibayarkan langsung untuk pelunasan fisik tanah seluas 1.431 m² yang menjadi lokasi pembangunan Panti Asuhan & Rumah Aman.
+                            </p>
+                        </div>
+
+                        <!-- Komponen 2 -->
+                        <div class="bg-white/10 backdrop-blur-sm border border-white/15 rounded-2xl p-6">
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="text-xs font-bold uppercase tracking-wider text-green-300 bg-green-950/60 px-3 py-1 rounded-full">11,8% Alokasi</span>
+                                <i class="ph-fill ph-stamp text-2xl text-gold-400"></i>
+                            </div>
+                            <div class="text-2xl sm:text-3xl font-black text-white mb-1">Rp 100.000</div>
+                            <div class="text-sm font-bold text-gold-400 mb-2">Biaya Legalitas, Pajak & AJB / m²</div>
+                            <p class="text-xs text-gray-300 leading-relaxed">
+                                Mencakup Pajak Pembeli (BPHTB), biaya pembuatan Akta Jual Beli (AJB) Notaris/PPAT, balik nama sertifikat, serta audit tata kelola.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- DONATION PACKAGES SECTION (4 PILIHAN UTAMA) -->
+    <!-- ========================================== -->
+    <section id="donasi" class="py-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-gold-600 font-bold tracking-wider uppercase text-xs sm:text-sm mb-2 block">Pilih Dukungan Anda</span>
+                <h2 class="text-navy-900 font-extrabold text-3xl md:text-4xl mb-4">Katalog Paket Pembebasan Lahan</h2>
+                <p class="text-gray-600 text-base sm:text-lg">
+                    Tiap meter persegi didedikasikan atas nama kebaikan Anda. Pilih paket luasan lahan di bawah ini atau tentukan sendiri jumlah meter persegi yang ingin Anda bebaskan.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 xl:gap-8 items-stretch">
+                
+                <!-- Paket 1: Rp 850.000 (Rekomendasi + Animasi Naik) -->
+                <div class="bg-white rounded-3xl p-6 flex flex-col shadow-xl border-2 border-gold-500 relative transform md:-translate-y-2 hover:-translate-y-4 hover:shadow-2xl transition-all duration-300">
+                    <div class="absolute top-0 right-6 transform -translate-y-1/2">
+                        <span class="bg-gold-500 text-navy-900 text-xs font-extrabold px-4 py-1.5 rounded-full uppercase tracking-wide shadow-md">Rekomendasi</span>
+                    </div>
+                    <h3 class="text-gold-600 font-bold mb-1.5 text-xs uppercase tracking-wider">Paket Paripurna</h3>
+                    <div class="font-extrabold text-xl xl:text-2xl text-navy-900 mb-1">Paket 1 m² All-In</div>
+                    <div class="flex items-baseline mb-5">
+                        <span class="text-2xl xl:text-3xl font-black text-navy-900">Rp 850.000</span>
+                    </div>
+                    <p class="text-gray-600 text-sm mb-6 flex-grow border-b border-gray-100 pb-5 leading-relaxed">
+                        Membebaskan <strong>1 m²</strong> tanah murni + Biaya Legalitas (Pajak BPHTB, Notaris/AJB) & Tata Kelola.
+                    </p>
+                    <ul class="text-sm text-gray-600 space-y-3 mb-8">
+                        <li class="flex items-start font-medium"><i class="ph-fill ph-info text-gray-400 text-lg mt-0.5 mr-2 shrink-0"></i> <span class="italic text-gray-500">Tanpa Bukti Pengurang Pajak</span></li>
+                        <li class="flex items-start font-medium"><i class="ph-fill ph-check-circle text-gold-500 text-lg mt-0.5 mr-2 shrink-0"></i> Pajak & Notaris Tercakup</li>
+                        <li class="flex items-start font-medium"><i class="ph-fill ph-check-circle text-gold-500 text-lg mt-0.5 mr-2 shrink-0"></i> Sertifikat Donasi Digital</li>
+                    </ul>
+                    <button onclick="openCheckoutModal('Paket Paripurna (1 m² All-In)', 1, 850000)" class="w-full bg-red-600 text-white hover:bg-red-700 font-bold py-3.5 rounded-xl transition-all shadow-lg hover:shadow-xl flex items-center justify-center">
+                        Pilih Paket 1 m²
+                    </button>
+                </div>
+
+                <!-- Paket 2: Rp 8.500.000 -->
+                <div class="bg-white rounded-3xl border border-gray-200 p-6 flex flex-col card-hover shadow-sm">
+                    <h3 class="text-gray-500 font-bold mb-1.5 text-xs uppercase tracking-wider">Paket Keluarga</h3>
+                    <div class="font-extrabold text-xl xl:text-2xl text-navy-900 mb-1">Pelindung 10 m²</div>
+                    <div class="flex items-baseline mb-5">
+                        <span class="text-2xl xl:text-3xl font-black text-navy-900">Rp 8.500.000</span>
+                    </div>
+                    <p class="text-gray-600 text-sm mb-6 flex-grow border-b border-gray-100 pb-5 leading-relaxed">
+                        Membebaskan <strong>10 m²</strong> lahan All-In. Sempurna untuk donasi kolektif keluarga, komunitas, atau gereja.
+                    </p>
+                    <ul class="text-sm text-gray-600 space-y-3 mb-8">
+                        <li class="flex items-start"><i class="ph-bold ph-check text-red-500 mt-1 mr-2 shrink-0"></i> Bukti Pengurang Pajak SPT</li>
+                        <li class="flex items-start"><i class="ph-bold ph-check text-red-500 mt-1 mr-2 shrink-0"></i> Cetak Bukti Resmi SSKKI</li>
+                        <li class="flex items-start"><i class="ph-bold ph-check text-red-500 mt-1 mr-2 shrink-0"></i> Laporan Dampak via WhatsApp</li>
+                    </ul>
+                    <button onclick="openCheckoutModal('Paket Keluarga (Pelindung 10 m²)', 10, 8500000)" class="w-full bg-red-600 text-white hover:bg-red-700 font-bold py-3.5 rounded-xl transition-colors shadow-md">
+                        Pilih Paket 10 m²
+                    </button>
+                </div>
+
+                <!-- Paket 3: Rp 850.000.000 -->
+                <div class="bg-navy-900 text-white rounded-3xl border border-navy-700 p-6 flex flex-col card-hover shadow-xl relative overflow-hidden">
+                    <div class="absolute -right-10 top-10 transform rotate-45 bg-gold-500 text-navy-900 text-[10px] font-extrabold py-1 w-40 text-center uppercase shadow-md">Mitra Utama</div>
+                    <h3 class="text-gold-400 font-bold mb-1.5 text-xs uppercase tracking-wider">CSR & Filantropi</h3>
+                    <div class="font-extrabold text-xl xl:text-2xl text-white mb-1">Kavling 100 m²</div>
+                    <div class="flex items-baseline mb-5">
+                        <span class="text-2xl xl:text-3xl font-black text-white">Rp 85 Juta</span>
+                    </div>
+                    <p class="text-gray-300 text-sm mb-6 flex-grow border-b border-navy-700 pb-5 leading-relaxed">
+                        Membebaskan <strong>100 m²</strong> lahan All-In untuk wirausahawan atau program CSR Perusahaan berskala besar.
+                    </p>
+                    <ul class="text-sm text-gray-300 space-y-3 mb-8">
+                        <li class="flex items-start"><i class="ph-bold ph-check text-gold-400 mt-1 mr-2 shrink-0"></i> Full Kepatuhan SPT Badan/Pribadi</li>
+                        <li class="flex items-start"><i class="ph-bold ph-check text-gold-400 mt-1 mr-2 shrink-0"></i> Nama pada Prasasti Lahan</li>
+                        <li class="flex items-start"><i class="ph-bold ph-check text-gold-400 mt-1 mr-2 shrink-0"></i> Undangan VIP Survei & Peresmian</li>
+                    </ul>
+                    <button onclick="openCheckoutModal('CSR Mitra Utama (Kavling 100 m²)', 100, 85000000)" class="w-full bg-gold-500 text-navy-900 hover:bg-gold-400 font-extrabold py-3.5 rounded-xl transition-colors shadow-lg">
+                        Pilih Paket 100 m²
+                    </button>
+                </div>
+
+                <!-- Paket 4: Custom Luas m² -->
+                <div onclick="openCustomModal()" class="bg-gradient-to-br from-white via-gold-50/40 to-gold-100/50 rounded-3xl border-2 border-dashed border-gold-400 hover:border-solid hover:border-gold-500 p-6 flex flex-col card-hover shadow-sm group cursor-pointer relative overflow-hidden">
+                    <!-- Watermark Icon Background -->
+                    <div class="absolute -right-6 -bottom-6 opacity-10 group-hover:opacity-20 transition-opacity duration-300 pointer-events-none">
+                        <i class="ph ph-ruler text-[150px] text-gold-600"></i>
+                    </div>
+                    
+                    <div class="flex justify-between items-center mb-1.5 z-10">
+                        <h3 class="text-gold-700 font-bold text-xs uppercase tracking-wider">Bebas Tentukan</h3>
+                        <span class="text-[11px] font-bold bg-white text-navy-900 px-2.5 py-0.5 rounded-full border border-gold-300 shadow-sm">Bisa Ketik Sendiri</span>
+                    </div>
+                    <div class="font-extrabold text-xl xl:text-2xl text-navy-900 mb-1 z-10">Custom Luas (m²)</div>
+                    
+                    <div class="flex items-center my-4 p-3 rounded-2xl bg-white/90 border border-gold-200 shadow-sm z-10 group-hover:border-gold-400 transition-colors">
+                        <div class="w-11 h-11 bg-gold-100 text-gold-700 rounded-xl flex items-center justify-center shrink-0 group-hover:bg-gold-500 group-hover:text-navy-900 transition-colors">
+                            <i class="ph-bold ph-pencil-ruler text-2xl"></i>
+                        </div>
+                        <div class="ml-3">
+                            <span class="text-xs text-gray-500 block font-medium">Ketik angka bebas:</span>
+                            <span class="text-sm font-extrabold text-navy-900 group-hover:text-gold-700 transition-colors">Misal: 3 m², 15 m², 75 m²...</span>
+                        </div>
+                    </div>
+
+                    <p class="text-gray-600 text-sm mb-6 flex-grow border-b border-gold-200/60 pb-5 z-10 leading-relaxed">
+                        Tidak terbatas pada paket di samping. Anda bebas mengetik sendiri berapa pun luas meter persegi lahan yang ingin Anda bebaskan.
+                    </p>
+
+                    <button type="button" class="w-full bg-navy-900 text-white group-hover:bg-gold-500 group-hover:text-navy-900 font-bold py-3.5 rounded-xl transition-all shadow-md z-10 flex items-center justify-center">
+                        <i class="ph-bold ph-calculator mr-2 text-lg"></i> Hitung & Isi Luas Sendiri
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- TRUST, LEGALITAS & SIMULASI PAJAK SECTION -->
+    <!-- ========================================== -->
+    <section id="legalitas" class="py-24 bg-navy-900 text-white border-t-4 border-gold-500 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10 bg-dots-gold pointer-events-none"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Legalitas Left -->
+                <div class="lg:col-span-5">
+                    <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-gold-400 text-xs font-bold uppercase tracking-wider mb-6">
+                        <i class="ph-fill ph-scales text-base"></i>
+                        <span>Kepastian Hukum & Pajak</span>
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold mb-4 leading-tight">Donasi Aman, Transparan & Mengurangi Pajak SPT</h2>
+                    <p class="text-gray-300 text-base sm:text-lg mb-6 leading-relaxed">
+                        Kampanye ini diinisiasi dan diawasi sepenuhnya oleh <strong>Yayasan Sumbangan Sosial Keagamaan Kristen Indonesia (SSKKI)</strong> bekerja sama dengan <strong>Yayasan Permata Nusantara</strong>.
+                    </p>
+                    
+                    <div class="space-y-3 mb-6">
+                        <div class="flex items-start bg-white/5 rounded-xl p-4 border border-white/10">
+                            <i class="ph-fill ph-certificate text-gold-400 text-2xl mr-3.5 mt-0.5 shrink-0"></i>
+                            <div>
+                                <h4 class="font-bold text-white text-sm">SK Dirjen Bimas Kristen No. 56 Tahun 2025</h4>
+                                <p class="text-xs text-gray-300 mt-1">Penetapan resmi SSKKI sebagai lembaga penerima sumbangan keagamaan pengurang pajak.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start bg-white/5 rounded-xl p-4 border border-white/10">
+                            <i class="ph-fill ph-file-text text-gold-400 text-2xl mr-3.5 mt-0.5 shrink-0"></i>
+                            <div>
+                                <h4 class="font-bold text-white text-sm">Peraturan Dirjen Pajak Nomor PER-3/PJ/2025</h4>
+                                <p class="text-xs text-gray-300 mt-1">Bukti resmi penerimaan donasi SSKKI sah dilampirkan sebagai pengurang penghasilan bruto pada SPT Tahunan PPh Pribadi maupun Badan.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive Tax Deduction Calculator Right -->
+                <div class="lg:col-span-7">
+                    <div class="bg-white text-gray-800 rounded-3xl p-6 sm:p-8 shadow-2xl border border-gray-100">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-gray-100">
+                            <div>
+                                <span class="text-xs font-bold uppercase tracking-wider text-green-700 bg-green-50 px-3 py-1 rounded-full border border-green-200">Simulasi Wajib Pajak Badan</span>
+                                <h3 class="text-xl sm:text-2xl font-extrabold text-navy-900 mt-2">Kalkulator Pengurang Pajak (Tax Deductible)</h3>
+                            </div>
+                            <div class="bg-navy-900 text-white px-4 py-2 rounded-xl font-black text-sm tracking-wider text-center shrink-0">
+                                RESMI SSKKI
+                            </div>
+                        </div>
+
+                        <div class="my-6 space-y-5">
+                            <div>
+                                <label class="text-xs font-bold text-gray-500 uppercase tracking-wider block mb-2">Pilih Simulasi Luas Donasi Lahan</label>
+                                <div class="grid grid-cols-3 gap-3">
+                                    <button type="button" onclick="simulateTax(1)" id="taxBtn1" class="tax-sim-btn py-2.5 px-3 rounded-xl border-2 border-navy-900 bg-navy-900 text-white font-bold text-sm transition-all">
+                                        1 m² (Rp 850 Rb)
+                                    </button>
+                                    <button type="button" onclick="simulateTax(10)" id="taxBtn10" class="tax-sim-btn py-2.5 px-3 rounded-xl border-2 border-gray-200 bg-white text-gray-700 hover:border-navy-900 font-bold text-sm transition-all">
+                                        10 m² (Rp 8,5 Jt)
+                                    </button>
+                                    <button type="button" onclick="simulateTax(100)" id="taxBtn100" class="tax-sim-btn py-2.5 px-3 rounded-xl border-2 border-gray-200 bg-white text-gray-700 hover:border-navy-900 font-bold text-sm transition-all">
+                                        100 m² (Rp 85 Jt)
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="bg-gray-50 rounded-2xl p-5 border border-gray-200 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <span class="text-xs text-gray-500 font-medium block">Nilai Donasi Pengurang Bruto</span>
+                                    <span id="simDonationVal" class="text-xl font-black text-navy-900">Rp 850.000</span>
+                                    <span class="text-[11px] text-gray-500 block mt-1">100% diakui sebagai pengurang penghasilan kena pajak</span>
+                                </div>
+                                <div class="sm:border-l sm:border-gray-200 sm:pl-4">
+                                    <span class="text-xs text-gray-500 font-medium block">Estimasi Penghematan PPh (Tarif 11% - 22%)</span>
+                                    <span id="simTaxSaved" class="text-xl font-black text-green-600">Rp 93.500 - Rp 187.000</span>
+                                    <span class="text-[11px] text-gray-500 block mt-1">Potensi pengurangan beban pajak tahunan perusahaan Anda</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <p class="text-xs text-gray-400 italic leading-relaxed">
+                            *Simulasi ini bersifat ilustratif bagi Wajib Pajak Badan. Rentang 11% merujuk pada Fasilitas Pasal 31E (untuk omzet s.d. Rp 50 Miliar), sedangkan 22% adalah tarif PPh Badan umum. Harap berkonsultasi dengan konsultan pajak Anda untuk penyesuaian perhitungan sesuai profil SPT Tahunan Badan Anda.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- FAQ SECTION -->
+    <!-- ========================================== -->
+    <section id="faq" class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="text-gold-600 font-bold tracking-wider uppercase text-xs sm:text-sm mb-2 block">Informasi Tambahan</span>
+                <h2 class="text-navy-900 font-extrabold text-3xl">Pertanyaan yang Sering Diajukan (FAQ)</h2>
+            </div>
+
+            <div class="space-y-4">
+                <!-- FAQ 1 -->
+                <div class="border border-gray-200 rounded-2xl overflow-hidden">
+                    <button onclick="toggleFaq(1)" class="w-full px-6 py-5 text-left bg-gray-50 hover:bg-gray-100 flex justify-between items-center transition-colors">
+                        <span class="font-bold text-navy-900">Bagaimana cara mendapatkan Bukti Resmi SSKKI untuk pengurang pajak SPT?</span>
+                        <i id="faqIcon1" class="ph-bold ph-caret-down text-navy-900 transition-transform duration-200"></i>
+                    </button>
+                    <div id="faqContent1" class="hidden px-6 py-5 bg-white text-gray-600 text-sm leading-relaxed border-t border-gray-100">
+                        Saat Anda mengisi formulir konfirmasi donasi di halaman ini, cukup cantumkan <strong>Nomor NPWP</strong> (Pribadi atau Perusahaan) beserta alamat email/WhatsApp aktif. Tim SSKKI akan menerbitkan tanda bukti penerimaan sumbangan resmi sesuai PER-3/PJ/2025 yang siap dilampirkan pada pelaporan SPT Tahunan Anda.
+                    </div>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="border border-gray-200 rounded-2xl overflow-hidden">
+                    <button onclick="toggleFaq(2)" class="w-full px-6 py-5 text-left bg-gray-50 hover:bg-gray-100 flex justify-between items-center transition-colors">
+                        <span class="font-bold text-navy-900">Apakah saya bisa berdonasi kurang atau lebih dari paket yang tertera?</span>
+                        <i id="faqIcon2" class="ph-bold ph-caret-down text-navy-900 transition-transform duration-200"></i>
+                    </button>
+                    <div id="faqContent2" class="hidden px-6 py-5 bg-white text-gray-600 text-sm leading-relaxed border-t border-gray-100">
+                        Tentu bisa. Anda dapat menggunakan kartu <strong>Custom Luas (m²)</strong> untuk mengetikkan berapa pun jumlah meter persegi yang ingin Anda bebaskan (termasuk angka desimal seperti 0.5 m² maupun angka bebas seperti 7 m², 25 m², atau 250 m²). Sistem akan menghitung totalnya secara otomatis.
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="border border-gray-200 rounded-2xl overflow-hidden">
+                    <button onclick="toggleFaq(3)" class="w-full px-6 py-5 text-left bg-gray-50 hover:bg-gray-100 flex justify-between items-center transition-colors">
+                        <span class="font-bold text-navy-900">Apa yang dimaksud dengan Protokol Zero-Face Exposure?</span>
+                        <i id="faqIcon3" class="ph-bold ph-caret-down text-navy-900 transition-transform duration-200"></i>
+                    </button>
+                    <div id="faqContent3" class="hidden px-6 py-5 bg-white text-gray-600 text-sm leading-relaxed border-t border-gray-100">
+                        <strong>Zero-Face Exposure</strong> adalah komitmen etika tertinggi Permata Nusantara dan SSKKI untuk tidak pernah mengekspos wajah maupun identitas asli para ibu hamil yang mengalami krisis serta bayi di dalam panti pada materi publikasi apa pun. Seluruh laporan dampak tetap disampaikan secara transparan melalui progres fisik lahan, audit keuangan, dan data terverifikasi tanpa melanggar privasi penghuni.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- FOOTER -->
+    <!-- ========================================== -->
+    <footer class="bg-navy-950 text-white py-14 border-t border-navy-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-10 pb-10 border-b border-navy-800">
+                <div class="md:col-span-6">
+                    <div class="font-extrabold text-xl mb-3 flex items-center space-x-3">
+                        <span class="text-gold-400">SSKKI</span>
+                        <span class="text-gray-500 font-light">×</span>
+                        <span>Permata Nusantara</span>
+                    </div>
+                    <p class="text-sm text-gray-400 max-w-md leading-relaxed">
+                        Misi bersama membebaskan lahan 1.431 m² untuk Panti Asuhan Anak Bayi & Rumah Aman Ibu Hamil. Sumbangan Keagamaan Pengurang Pajak resmi berdasarkan SK Dirjen Bimas Kristen No. 56 Tahun 2025 & PER-3/PJ/2025.
+                    </p>
+                </div>
+                <div class="md:col-span-3">
+                    <h4 class="font-bold text-sm uppercase tracking-wider text-gold-400 mb-3">Navigasi Cepat</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#urgensi" class="hover:text-white transition-colors">Urgensi & Protokol</a></li>
+                        <li><a href="#transparansi" class="hover:text-white transition-colors">Rincian Rp 850.000/m²</a></li>
+                        <li><a href="#donasi" class="hover:text-white transition-colors">Katalog Paket Lahan</a></li>
+                        <li><a href="#legalitas" class="hover:text-white transition-colors">Klaim Pengurang Pajak</a></li>
+                    </ul>
+                </div>
+                <div class="md:col-span-3">
+                    <h4 class="font-bold text-sm uppercase tracking-wider text-gold-400 mb-3">Layanan Donatur & CSR</h4>
+                    <p class="text-xs text-gray-400 mb-4 leading-relaxed">
+                        Butuh undangan survei lokasi lahan atau diskusi kemitraan CSR perusahaan?
+                    </p>
+                    <button onclick="openCheckoutModal('Konsultasi CSR / Kunjungan Lahan', 100, 85000000)" class="inline-flex items-center text-xs font-bold bg-white/10 hover:bg-white/20 text-white px-4 py-2.5 rounded-xl border border-white/15 transition-colors">
+                        <i class="ph-fill ph-whatsapp-logo text-green-400 text-base mr-2"></i> Hubungi Tim Sekretariat
+                    </button>
+                </div>
+            </div>
+
+            <div class="pt-8 flex flex-col sm:flex-row justify-between items-center text-xs text-gray-500">
+                <p>&copy; 2026 Yayasan SSKKI x Yayasan Permata Nusantara. Seluruh hak cipta dilindungi.</p>
+                <div class="mt-3 sm:mt-0 space-x-4">
+                    <a href="#legalitas" class="hover:text-gray-300 transition-colors">Kepatuhan Pajak</a>
+                    <a href="#urgensi" class="hover:text-gray-300 transition-colors">Kebijakan Privasi & Zero-Face</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========================================== -->
+    <!-- MODAL 1: POP-UP KALKULATOR CUSTOM LUAS (m²) -->
+    <!-- ========================================== -->
+    <div id="customDonationModal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4">
+        <div id="modalBackdrop" class="absolute inset-0 bg-navy-950/80 backdrop-blur-md opacity-0 transition-opacity duration-300" onclick="closeCustomModal()"></div>
+        
+        <div id="modalContent" class="relative bg-white rounded-3xl p-6 md:p-8 max-w-lg w-full shadow-2xl transform scale-95 opacity-0 transition-all duration-300 overflow-hidden max-h-[92vh] overflow-y-auto modal-scroll">
+            <div class="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-gold-50/80 to-white -z-10"></div>
+            
+            <button onclick="closeCustomModal()" aria-label="Tutup" class="absolute top-4 right-4 text-gray-400 hover:text-red-500 bg-white shadow-sm border border-gray-100 hover:bg-red-50 rounded-full p-2 transition-colors z-10">
+                <i class="ph-bold ph-x text-lg"></i>
+            </button>
+            
+            <div class="text-center mb-6 pt-1">
+                <div class="w-16 h-16 bg-gradient-to-tr from-gold-500 to-gold-300 text-navy-900 rounded-2xl flex items-center justify-center mx-auto mb-3 shadow-md transform rotate-3">
+                    <i class="ph-bold ph-ruler text-3xl"></i>
+                </div>
+                <span class="text-[11px] font-extrabold uppercase tracking-widest text-gold-700 bg-gold-100 px-3 py-1 rounded-full">Kalkulator Luas Bebas</span>
+                <h3 class="text-2xl font-extrabold text-navy-900 mt-2">Berapa m² yang Ingin Anda Bebaskan?</h3>
+                <p class="text-gray-500 text-sm mt-1.5 leading-relaxed">
+                    Anda bebas <strong class="text-navy-900 underline decoration-gold-500">mengetik sendiri angkanya</strong> di kotak bawah, atau klik tombol pintasan yang tersedia.
+                </p>
+            </div>
+
+            <!-- Quick Pintasan Chips -->
+            <div class="mb-4">
+                <span class="text-[11px] font-bold text-gray-400 uppercase tracking-wider block mb-2 text-center">Pintasan Cepat (Opsional):</span>
+                <div class="grid grid-cols-4 gap-2">
+                    <button type="button" onclick="setNominal(2)" class="py-2.5 px-1 border-2 border-gray-100 rounded-xl hover:border-gold-400 hover:bg-gold-50 transition-all group text-center">
+                        <span class="text-navy-900 font-bold text-base group-hover:text-gold-700">2 m²</span>
+                    </button>
+                    <button type="button" onclick="setNominal(5)" class="py-2.5 px-1 border-2 border-gray-100 rounded-xl hover:border-gold-400 hover:bg-gold-50 transition-all group text-center">
+                        <span class="text-navy-900 font-bold text-base group-hover:text-gold-700">5 m²</span>
+                    </button>
+                    <button type="button" onclick="setNominal(25)" class="py-2.5 px-1 border-2 border-gray-100 rounded-xl hover:border-gold-400 hover:bg-gold-50 transition-all group text-center">
+                        <span class="text-navy-900 font-bold text-base group-hover:text-gold-700">25 m²</span>
+                    </button>
+                    <button type="button" onclick="setNominal(50)" class="py-2.5 px-1 border-2 border-gray-100 rounded-xl hover:border-gold-400 hover:bg-gold-50 transition-all group text-center">
+                        <span class="text-navy-900 font-bold text-base group-hover:text-gold-700">50 m²</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Input Box & Dynamic Calculator -->
+            <div class="bg-gray-50 p-5 rounded-2xl border-2 border-gold-300 mb-6">
+                <label for="customInput" class="text-xs font-extrabold text-navy-900 uppercase tracking-wide mb-3 block text-center">
+                    <i class="ph-bold ph-keyboard mr-1 text-gold-600"></i> Ketik Bebas Jumlah Luas Lahan (m²)
+                </label>
+                
+                <div class="flex items-center justify-center space-x-3 mb-4">
+                    <button type="button" onclick="adjustMeter(-1)" class="w-11 h-11 rounded-xl bg-white border border-gray-300 hover:bg-gray-100 text-navy-900 font-bold text-xl flex items-center justify-center shadow-sm transition-colors">
+                        -
+                    </button>
+                    <div class="relative w-40">
+                        <input type="number" id="customInput" placeholder="Contoh: 3" min="0.5" step="any" oninput="calculateTotal()" class="w-full bg-white border-2 border-navy-900 text-navy-900 font-black text-2xl py-3 pr-12 pl-4 text-center rounded-xl focus:outline-none focus:border-gold-500 transition-colors shadow-inner">
+                        <span class="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-500 font-extrabold text-lg pointer-events-none">m²</span>
+                    </div>
+                    <button type="button" onclick="adjustMeter(1)" class="w-11 h-11 rounded-xl bg-white border border-gray-300 hover:bg-gray-100 text-navy-900 font-bold text-xl flex items-center justify-center shadow-sm transition-colors">
+                        +
+                    </button>
+                </div>
+                
+                <!-- Dynamic Result -->
+                <div class="text-center pt-4 border-t border-gray-200/80">
+                    <span class="text-xs text-gray-500 font-medium mb-1 block">Total Donasi All-In (Rp 850.000 × <span id="displayMeterCount" class="font-bold text-navy-900">0</span> m²)</span>
+                    <div class="text-2xl md:text-3xl font-black text-red-600 transition-all" id="totalRupiah">Rp 0</div>
+                    <p id="customErrorMsg" class="hidden text-xs text-red-600 font-semibold mt-2">Silakan masukkan jumlah luas lahan minimal 0,5 m²</p>
+                </div>
+            </div>
+
+            <button type="button" onclick="proceedFromCustom()" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold text-lg py-4 rounded-xl shadow-lg transition-all flex justify-center items-center group">
+                Lanjutkan ke Rincian Donasi <i class="ph-bold ph-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- MODAL 2: FORM KONFIRMASI & CHECKOUT DONASI -->
+    <!-- ========================================== -->
+    <div id="checkoutModal" class="fixed inset-0 z-[110] hidden items-center justify-center p-4">
+        <div id="checkoutBackdrop" class="absolute inset-0 bg-navy-950/80 backdrop-blur-md opacity-0 transition-opacity duration-300" onclick="closeCheckoutModal()"></div>
+        
+        <div id="checkoutContent" class="relative bg-white rounded-3xl p-6 md:p-8 max-w-xl w-full shadow-2xl transform scale-95 opacity-0 transition-all duration-300 max-h-[92vh] overflow-y-auto modal-scroll">
+            <button onclick="closeCheckoutModal()" aria-label="Tutup" class="absolute top-4 right-4 text-gray-400 hover:text-red-500 bg-gray-100 hover:bg-red-50 rounded-full p-2 transition-colors">
+                <i class="ph-bold ph-x text-lg"></i>
+            </button>
+
+            <div class="flex items-center space-x-3 mb-5">
+                <div class="w-12 h-12 rounded-2xl bg-navy-900 text-gold-400 flex items-center justify-center shrink-0">
+                    <i class="ph-fill ph-SealCheck text-2xl"></i>
+                </div>
+                <div>
+                    <span class="text-xs font-bold uppercase tracking-wider text-gold-600">Langkah Terakhir</span>
+                    <h3 class="text-xl sm:text-2xl font-extrabold text-navy-900">Konfirmasi Pembebasan Lahan</h3>
+                </div>
+            </div>
+
+            <!-- Ringkasan Paket Terpilih -->
+            <div class="bg-navy-900 text-white rounded-2xl p-4 sm:p-5 mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3 border border-navy-700">
+                <div>
+                    <span class="text-[11px] uppercase tracking-wider text-gold-400 font-bold block">Paket Donasi Terpilih</span>
+                    <div id="summaryPackageName" class="font-extrabold text-base sm:text-lg">Paket Paripurna (1 m² All-In)</div>
+                    <span id="summaryMeterText" class="text-xs text-gray-300 block mb-1">Luas Lahan: 1 m² (Termasuk Tanah + BPHTB & AJB)</span>
+                    <span id="taxEligibilityBadge" class="inline-block mt-1 text-[10px] font-bold px-2 py-0.5 rounded-full border"></span>
+                </div>
+                <div class="sm:text-right border-t sm:border-t-0 pt-2 sm:pt-0 border-white/10">
+                    <span class="text-[11px] text-gray-300 block">Total Nominal</span>
+                    <div id="summaryTotalNominal" class="text-xl sm:text-2xl font-black text-gold-400">Rp 850.000</div>
+                </div>
+            </div>
+
+            <form id="donationForm" onsubmit="submitDonation(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">Nama Lengkap / Nama Perusahaan *</label>
+                    <input type="text" id="donorName" required placeholder="Contoh: Budi Santoso / PT Maju Bersama" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:border-navy-900 text-sm font-medium">
+                    <label class="inline-flex items-center mt-2 cursor-pointer">
+                        <input type="checkbox" id="anonCheck" class="rounded border-gray-300 text-navy-900 focus:ring-navy-900 mr-2">
+                        <span class="text-xs text-gray-600">Cantumkan sebagai <strong>Anonim (NN)</strong> pada daftar publikasi donatur</span>
+                    </label>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">Nomor WhatsApp Aktif *</label>
+                        <input type="tel" id="donorPhone" required placeholder="0812xxxxxxxx" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:border-navy-900 text-sm font-medium">
+                        <p class="text-[10px] text-gray-500 mt-1">*Formulir NPWP untuk pengurang pajak akan dikirimkan via WA (2-3 hari kerja)</p>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">Alamat Email *</label>
+                        <input type="email" id="donorEmail" required placeholder="nama@email.com" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:border-navy-900 text-sm font-medium">
+                    </div>
+                </div>
+
+                <button type="submit" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold text-base py-4 rounded-xl shadow-lg transition-all flex items-center justify-center mt-6">
+                    <i class="ph-fill ph-check-circle mr-2 text-xl"></i> Lanjutkan ke Pembayaran Otomatis
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- TOAST NOTIFICATION -->
+    <!-- ========================================== -->
+    <div id="toastNotification" class="fixed bottom-6 right-6 z-[120] hidden bg-navy-900 text-white px-5 py-4 rounded-2xl shadow-2xl border border-gold-500/40 max-w-sm items-center space-x-3.5 transition-all">
+        <div class="w-10 h-10 rounded-xl bg-green-500/20 text-green-400 flex items-center justify-center shrink-0">
+            <i class="ph-fill ph-check-circle text-2xl"></i>
+        </div>
+        <div>
+            <h4 id="toastTitle" class="font-bold text-sm text-gold-400">Komitmen Donasi Tercatat!</h4>
+            <p id="toastMessage" class="text-xs text-gray-300 mt-0.5">Terima kasih. Progres lahan telah diperbarui dan bukti resmi SSKKI segera dikirimkan.</p>
+        </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- SCRIPTS -->
+    <!-- ========================================== -->
+    <script>
+        const PRICE_PER_METER = 850000;
+        const TARGET_METER = 1431;
+        let fundedMeters = 0;
+        let selectedPackage = {
+            name: 'Paket Paripurna (1 m² All-In)',
+            meters: 1,
+            total: 850000
+        };
+
+        // Format angka ke Rupiah
+        function formatRupiah(amount) {
+            return new Intl.NumberFormat('id-ID', {
+                style: 'currency',
+                currency: 'IDR',
+                minimumFractionDigits: 0,
+                maximumFractionDigits: 0
+            }).format(amount);
+        }
+
+        // Navbar shadow on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('mainNav');
+            if (window.scrollY > 20) {
+                nav.classList.add('shadow-md');
+            } else {
+                nav.classList.remove('shadow-md');
+            }
+        });
+
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const icon = document.getElementById('mobileMenuIcon');
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+                icon.classList.replace('ph-list', 'ph-x');
+            } else {
+                menu.classList.add('hidden');
+                icon.classList.replace('ph-x', 'ph-list');
+            }
+        }
+
+        // Modal 1: Custom Luas (m2)
+        function openCustomModal() {
+            const modal = document.getElementById('customDonationModal');
+            const backdrop = document.getElementById('modalBackdrop');
+            const content = document.getElementById('modalContent');
+            
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            
+            setTimeout(() => {
+                backdrop.classList.replace('opacity-0', 'opacity-100');
+                content.classList.remove('scale-95', 'opacity-0');
+                content.classList.add('scale-100', 'opacity-100');
+                document.getElementById('customInput').focus();
+            }, 15);
+        }
+
+        function closeCustomModal() {
+            const modal = document.getElementById('customDonationModal');
+            const backdrop = document.getElementById('modalBackdrop');
+            const content = document.getElementById('modalContent');
+            
+            backdrop.classList.replace('opacity-100', 'opacity-0');
+            content.classList.remove('scale-100', 'opacity-100');
+            content.classList.add('scale-95', 'opacity-0');
+            
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+            }, 280);
+        }
+
+        function setNominal(meters) {
+            document.getElementById('customInput').value = meters;
+            document.getElementById('customErrorMsg').classList.add('hidden');
+            calculateTotal();
+        }
+
+        function adjustMeter(delta) {
+            const input = document.getElementById('customInput');
+            let current = parseFloat(input.value) || 0;
+            let next = Math.max(0.5, current + delta);
+            input.value = Number.isInteger(next) ? next : next.toFixed(1);
+            document.getElementById('customErrorMsg').classList.add('hidden');
+            calculateTotal();
+        }
+
+        function calculateTotal() {
+            const inputVal = parseFloat(document.getElementById('customInput').value);
+            const totalElement = document.getElementById('totalRupiah');
+            const meterSpan = document.getElementById('displayMeterCount');
+            
+            if (inputVal && inputVal > 0) {
+                const total = Math.round(inputVal * PRICE_PER_METER);
+                meterSpan.textContent = inputVal;
+                totalElement.textContent = formatRupiah(total);
+            } else {
+                meterSpan.textContent = '0';
+                totalElement.textContent = 'Rp 0';
+            }
+        }
+
+        function proceedFromCustom() {
+            const inputVal = parseFloat(document.getElementById('customInput').value);
+            if (!inputVal || inputVal < 0.5) {
+                document.getElementById('customErrorMsg').classList.remove('hidden');
+                document.getElementById('customInput').focus();
+                return;
+            }
+            const total = Math.round(inputVal * PRICE_PER_METER);
+            closeCustomModal();
+            setTimeout(() => {
+                openCheckoutModal(`Donasi Lahan Custom (${inputVal} m² All-In)`, inputVal, total);
+            }, 300);
+        }
+
+        // Modal 2: Checkout & Konfirmasi
+function openCheckoutModal(packageName, meters, totalNominal) {
+    selectedPackage = { name: packageName, meters: meters, total: totalNominal };
+
+    document.getElementById('summaryPackageName').textContent = packageName;
+    document.getElementById('summaryMeterText').textContent = `Luas Lahan: ${meters} m² (Termasuk Tanah + BPHTB & AJB)`;
+    document.getElementById('summaryTotalNominal').textContent = formatRupiah(totalNominal);
+
+    // Update Status Bukti Potong Pajak
+    const badge = document.getElementById('taxEligibilityBadge');
+    if (totalNominal >= 1000000) {
+        badge.textContent = "Berhak Menerima Bukti Resmi SSKKI";
+        badge.className = "inline-block mt-1 text-[10px] font-bold px-2 py-0.5 rounded-full border border-green-500/50 bg-green-500/20 text-green-300";
+    } else {
+        badge.textContent = "Masuk Rekening Operasional (Tanpa Bukti Pajak)";
+        badge.className = "inline-block mt-1 text-[10px] font-bold px-2 py-0.5 rounded-full border border-gray-400/50 bg-gray-500/20 text-gray-300";
+    }
+
+    const modal = document.getElementById('checkoutModal');
+    const backdrop = document.getElementById('checkoutBackdrop');
+    const content = document.getElementById('checkoutContent');
+
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+
+    setTimeout(() => {
+        backdrop.classList.replace('opacity-0', 'opacity-100');
+        content.classList.remove('scale-95', 'opacity-0');
+        content.classList.add('scale-100', 'opacity-100');
+    }, 15);
+}
+
+function closeCheckoutModal() {
+    const modal = document.getElementById('checkoutModal');
+    const backdrop = document.getElementById('checkoutBackdrop');
+    const content = document.getElementById('checkoutContent');
+
+    backdrop.classList.replace('opacity-100', 'opacity-0');
+    content.classList.remove('scale-100', 'opacity-100');
+    content.classList.add('scale-95', 'opacity-0');
+
+    setTimeout(() => {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+    }, 280);
+}
+
+// Submit Form & Update Live Progress Tracker
+async function submitDonation(event) {
+    event.preventDefault();
+
+    const name = document.getElementById('donorName').value;
+    const phone = document.getElementById('donorPhone').value;
+    const email = document.getElementById('donorEmail').value;
+
+    const submitBtn = document.querySelector('button[type="submit"]');
+    const originalText = submitBtn.innerHTML;
+    submitBtn.innerHTML = 'Memproses...';
+    submitBtn.disabled = true;
+
+    try {
+        // Mengirim data ke server backend Node.js (sekarang menggunakan url relatif)
+        const response = await fetch('http://localhost:3000/api/get-token', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                name: name,
+                email: email,
+                phone: phone,
+                amount: selectedPackage.total,
+                meters: selectedPackage.meters
+            })
+        });
+
+        const data = await response.json();
+
+        if (data.token) {
+            closeCheckoutModal(); // Menutup modal form konfirmasi
+
+            // Memunculkan Pop-Up Pembayaran Midtrans Snap
+            window.snap.pay(data.token, {
+                onSuccess: function(result){
+                    alert("Donasi Berhasil! Terima kasih.");
+                    // Di sini Anda bisa memperbarui progres meteran web
+                },
+                onPending: function(result){
+                    alert("Menunggu pembayaran Anda diselesaikan.");
+                },
+                onError: function(result){
+                    alert("Pembayaran Gagal.");
+                },
+                onClose: function(){
+                    alert("Anda menutup halaman pembayaran sebelum selesai.");
+                }
+            });
+        }
+    } catch (error) {
+        alert("Gagal memproses donasi. Pastikan server backend sudah dinyalakan!");
+        console.error(error);
+    } finally {
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+    }
+}
+
+        // Simulasi Kalkulator Pengurang Pajak (11% - 22%)
+        function simulateTax(meters) {
+            const totalDonation = meters * PRICE_PER_METER;
+            // Disesuaikan untuk rentang 11% (Pasal 31E) sampai 22% (Tarif Umum Badan)
+            const minTaxSaved = Math.round(totalDonation * 0.11);
+            const maxTaxSaved = Math.round(totalDonation * 0.22);
+
+            document.getElementById('simDonationVal').textContent = formatRupiah(totalDonation);
+            document.getElementById('simTaxSaved').textContent = `${formatRupiah(minTaxSaved)} - ${formatRupiah(maxTaxSaved)}`;
+
+            [1, 10, 100].forEach(m => {
+                const btn = document.getElementById(`taxBtn${m}`);
+                if (m === meters) {
+                    btn.className = "tax-sim-btn py-2.5 px-3 rounded-xl border-2 border-navy-900 bg-navy-900 text-white font-bold text-sm transition-all";
+                } else {
+                    btn.className = "tax-sim-btn py-2.5 px-3 rounded-xl border-2 border-gray-200 bg-white text-gray-700 hover:border-navy-900 font-bold text-sm transition-all";
+                }
+            });
+        }
+
+        // FAQ Accordion
+        function toggleFaq(index) {
+            const content = document.getElementById(`faqContent${index}`);
+            const icon = document.getElementById(`faqIcon${index}`);
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                icon.classList.add('rotate-180');
+            } else {
+                content.classList.add('hidden');
+                icon.classList.remove('rotate-180');
+            }
+        }
+    </script>
+    <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="SB-Mid-client-AFe80a7ih_B5W015E4uSl.fA"></script>
+</body>
+</html>

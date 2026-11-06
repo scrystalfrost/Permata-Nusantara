@@ -1,0 +1,81 @@
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+/* Smooth Scrolling & Base Reset */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Custom Card Hover Animations */
+.card-hover {
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-hover:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 25px -5px rgba(15, 41, 66, 0.12), 0 10px 10px -5px rgba(15, 41, 66, 0.06);
+}
+
+/* Blueprint Grid Pattern for Hero & Legalitas */
+.bg-blueprint {
+    background-color: #0f2942;
+    background-image: 
+        linear-gradient(rgba(250, 204, 21, 0.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(250, 204, 21, 0.07) 1px, transparent 1px),
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+    background-position: -1px -1px, -1px -1px, -1px -1px, -1px -1px;
+}
+
+.bg-dots-gold {
+    background-image: radial-gradient(#facc15 1px, transparent 1px);
+    background-size: 28px 28px;
+}
+
+/* Progress Bar Shimmer Effect */
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+.progress-shimmer {
+    background: linear-gradient(90deg, #eab308 25%, #fde047 50%, #eab308 75%);
+    background-size: 200% 100%;
+    animation: shimmer 3s infinite linear;
+}
+
+/* Remove Default Number Input Spinners */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    appearance: textfield; /* Standard Modern Syntax */
+    -moz-appearance: textfield; /* Mozilla Firefox Fallback */
+}
+
+/* Custom Scrollbar for Modal */
+.modal-scroll::-webkit-scrollbar {
+    width: 6px;
+}
+
+.modal-scroll::-webkit-scrollbar-track {
+    background: #f1f5f9;
+    border-radius: 8px;
+}
+
+.modal-scroll::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 8px;
+}
+
+.modal-scroll::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
