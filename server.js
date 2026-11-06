@@ -3,6 +3,13 @@ const express = require('express');
 const cors = require('cors');
 const midtransClient = require('midtrans-client');
 
+const { createClient } = require('@supabase/supabase-js');
+
+// Inisialisasi koneksi ke Database Supabase
+const supabaseUrl = process.env.SUPABASE_URL;
+const supabaseKey = process.env.SUPABASE_KEY;
+const supabase = createClient(supabaseUrl, supabaseKey);
+
 const app = express();
 app.use(cors());
 app.use(express.json());
@@ -79,6 +86,72 @@ if (process.env.NODE_ENV !== 'production') {
         console.log(`Server Backend berjalan di port ${PORT}`);
     });
 }
+
+// ==========================================
+// 1. API PEMBACA PROGRES DONASI
+// ==========================================
+app.get('/api/progress', async (req, res) => {
+    try {
+        // Ambil semua transaksi yang lunas dari Supabase
+        const { data, error } = await supabase
+            .from('transaksi')
+            .select('luas_meter')
+            .eq('status', 'LUNAS');
+            
+        if (error) throw error;
+        
+        // Hitung total meter yang terkumpul
+        const totalTerkumpul = data.reduce((sum, item) => sum + Number(item.luas_meter), 0);
+        const totalRupiah = totalTerkumpul * 850000;
+        
+        res.json({
+            terkumpul_meter: totalTerkumpul,
+            terkumpul_rupiah: totalRupiah,
+            target_meter: 1431,
+            target_rupiah: 1431 * 850000
+        });
+    } catch (error) {
+        console.error("Progress error:", error);
+        res.status(500).json({ error: error.message });
+    }
+});
+
+// ==========================================
+// 2. WEBHOOK MIDTRANS (Penerima Notifikasi)
+// ==========================================
+app.post('/api/webhook', async (req, res) => {
+    try {
+        const data = req.body;
+        
+        // Cek apakah donatur sudah berhasil bayar lunas
+        if (data.transaction_status === 'settlement' || data.transaction_status === 'capture') {
+            
+            // Hitung luas meter dari nominal gross_amount (karena harga Rp850.000/m2)
+            const luasMeter = parseFloat(data.gross_amount) / 850000;
+            
+            // Simpan otomatis ke Database Supabase
+            const { error } = await supabase
+                .from('transaksi')
+                .upsert({
+                    order_id: data.order_id,
+                    luas_meter: luasMeter,
+                    status: 'LUNAS'
+                });
+
+            if (error) {
+                console.error('Error simpan ke Supabase:', error);
+            } else {
+                console.log(`Donasi ${luasMeter} m² (Order: ${data.order_id}) berhasil dicatat!`);
+            }
+        }
+        
+        // Wajib balas 200 OK agar Midtrans tahu pesan sudah kita terima
+        res.status(200).send('OK');
+    } catch (error) {
+        console.error("Webhook error:", error);
+        res.status(500).send('Error');
+    }
+});
 
 // Export app agar bisa dieksekusi oleh sistem Serverless Vercel
 module.exports = app;

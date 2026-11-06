@@ -1072,6 +1072,40 @@ async function submitDonation(event) {
                 icon.classList.remove('rotate-180');
             }
         }
+
+        // ==========================================
+// FITUR UPDATE PROGRES BAR REAL-TIME
+// ==========================================
+async function fetchProgress() {
+    try {
+        const response = await fetch('/api/progress');
+        const data = await response.json();
+        
+        // Update Teks Meter
+        document.getElementById('meterCounter').textContent = data.terkumpul_meter + ' m²';
+        
+        // Update Teks Rupiah
+        const rupiahFormatted = new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }).format(data.terkumpul_rupiah);
+        document.getElementById('rupiahCounter').textContent = rupiahFormatted + ' terkumpul';
+        
+        // Animasikan Lebar Garis Progress Bar
+        let persentase = (data.terkumpul_meter / data.target_meter) * 100;
+        if (persentase < 2) persentase = 2; // minimal lebar 2% agar animasi shimmer tetap kelihatan
+        if (persentase > 100) persentase = 100;
+        
+        document.getElementById('progressBar').style.width = persentase + '%';
+        
+    } catch (error) {
+        console.error("Gagal memuat progres:", error);
+    }
+}
+
+// Jalankan saat web dibuka pertama kali
+window.addEventListener('DOMContentLoaded', fetchProgress);
+
+// Terus cek (polling) setiap 5 detik agar seolah-olah real-time
+setInterval(fetchProgress, 5000);
+
     </script>
     <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="SB-Mid-client-AFe80a7ih_B5W015E4uSl.fA"></script>
 </body>
