@@ -99,16 +99,16 @@ app.get('/api/progress', async (req, res) => {
             .eq('status', 'LUNAS');
             
         if (error) throw error;
-        
+
         // Hitung total meter yang terkumpul
         const totalTerkumpul = data.reduce((sum, item) => sum + Number(item.luas_meter), 0);
-        const totalRupiah = totalTerkumpul * 850000;
+        const totalRupiah = totalTerkumpul * 800000;
         
         res.json({
             terkumpul_meter: totalTerkumpul,
             terkumpul_rupiah: totalRupiah,
-            target_meter: 1431,
-            target_rupiah: 1431 * 850000
+            target_meter: 2805,
+            target_rupiah: 2805 * 800000
         });
     } catch (error) {
         console.error("Progress error:", error);
@@ -125,9 +125,9 @@ app.post('/api/webhook', async (req, res) => {
         
         // Cek apakah donatur sudah berhasil bayar lunas
         if (data.transaction_status === 'settlement' || data.transaction_status === 'capture') {
-            
-            // Hitung luas meter dari nominal gross_amount (karena harga Rp850.000/m2)
-            const luasMeter = parseFloat(data.gross_amount) / 850000;
+
+            // Hitung luas meter dari nominal gross_amount (karena harga Rp800.000/m2)
+            const luasMeter = parseFloat(data.gross_amount) / 800000;
             
             // Simpan otomatis ke Database Supabase
             const { error } = await supabase
