@@ -4,21 +4,25 @@ const cors = require('cors');
 const midtransClient = require('midtrans-client');
 const { createClient } = require('@supabase/supabase-js');
 
+// Inisialisasi Supabase
 const supabaseUrl = process.env.SUPABASE_URL;
 const supabaseKey = process.env.SUPABASE_KEY;
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 const app = express();
 app.use(cors());
+// Batas limit dinaikkan ke 10mb agar bisa menerima file gambar bukti transfer
 app.use(express.json({ limit: '10mb' }));
 
-// --- KONFIGURASI 1 PAYMENT GATEWAY (Hanya untuk Segmen 1 / Tanpa SPT) ---
+// --- KONFIGURASI PAYMENT GATEWAY MIDTRANS ---
 let snap = new midtransClient.Snap({
-    isProduction : false, // Ubah ke true jika sudah live
-    serverKey : process.env.MIDTRANS_SERVER_KEY // Hanya butuh 1 Key
+    isProduction : false, // Ubah menjadi true saat web di-online-kan dan menerima uang asli
+    serverKey : process.env.MIDTRANS_SERVER_KEY 
 });
 
-// Endpoint untuk meminta token pembayaran ke Midtrans
+// ==========================================
+// 1. API GET TOKEN MIDTRANS (Segmen 1)
+// ==========================================
 app.post('/api/get-token', async (req, res) => {
     try {
         const { name, email, phone, amount, meters } = req.body;
@@ -37,11 +41,10 @@ app.post('/api/get-token', async (req, res) => {
                 "id": `LAHAN-${meters}M`,
                 "price": amount,
                 "quantity": 1,
-                "name": `Pembebasan Lahan ${meters} m² (All-In)`
+                "name": `Pengadaan Lahan ${meters} m² (All-In)`
             }]
         };
 
-        // Langsung generate transaksi tanpa pengecekan if-else
         let transaction = await snap.createTransaction(parameter);
         res.json({ token: transaction.token });
 
@@ -51,51 +54,66 @@ app.post('/api/get-token', async (req, res) => {
     }
 });
 
-const PORT = process.env.PORT || 3000;
-if (process.env.NODE_ENV !== 'production') {
-    app.listen(PORT, () => console.log(`Server Backend berjalan di port ${PORT}`));
-}
-
 // ==========================================
-// 1. API PEMBACA PROGRES DONASI
+// 2. API PEMBACA PROGRES DONASI (Progress Bar)
 // ==========================================
 app.get('/api/progress', async (req, res) => {
     try {
-        const { data, error } = await supabase.from('transaksi').select('luas_meter').eq('status', 'LUNAS');
+        // Ambil semua data transaksi yang berstatus LUNAS
+        const { data, error } = await supabase
+            .from('transaksi')
+            .select('luas_meter')
+            .eq('status', 'LUNAS');
+            
         if (error) throw error;
+        
+        // Hitung total meter yang terkumpul (Target 2.805 m2, Harga 800rb)
         const totalTerkumpul = data.reduce((sum, item) => sum + Number(item.luas_meter), 0);
+        const totalRupiah = totalTerkumpul * 800000;
+        
         res.json({
             terkumpul_meter: totalTerkumpul,
-            terkumpul_rupiah: totalTerkumpul * 800000,
+            terkumpul_rupiah: totalRupiah,
             target_meter: 2805,
             target_rupiah: 2805 * 800000
         });
     } catch (error) {
+        console.error("Progress error:", error);
         res.status(500).json({ error: error.message });
     }
 });
 
 // ==========================================
-// 2. WEBHOOK MIDTRANS
+// 3. WEBHOOK MIDTRANS (Auto-Update Progress Segmen 1)
 // ==========================================
 app.post('/api/webhook', async (req, res) => {
     try {
         const data = req.body;
+        
+        // Jika donatur berhasil bayar via Midtrans
         if (data.transaction_status === 'settlement' || data.transaction_status === 'capture') {
             const luasMeter = parseFloat(data.gross_amount) / 800000;
-            const { error } = await supabase.from('transaksi').upsert({
-                order_id: data.order_id, luas_meter: luasMeter, status: 'LUNAS'
-            });
-            if (error) console.error('Error simpan:', error);
+            
+            // Simpan ke Supabase agar Progress Bar bergerak
+            const { error } = await supabase
+                .from('transaksi')
+                .upsert({
+                    order_id: data.order_id,
+                    luas_meter: luasMeter,
+                    status: 'LUNAS'
+                });
+
+            if (error) console.error('Error simpan ke Supabase:', error);
         }
         res.status(200).send('OK');
     } catch (error) {
+        console.error("Webhook error:", error);
         res.status(500).send('Error');
     }
 });
 
 // ==========================================
-// 3. API UPLOAD BUKTI TRANSFER (TANPA FONNTE)
+// 4. API UPLOAD BUKTI TRANSFER (Segmen 2)
 // ==========================================
 app.post('/api/submit-tax-donation', async (req, res) => {
     try {
@@ -107,20 +125,40 @@ app.post('/api/submit-tax-donation', async (req, res) => {
             const fileBuffer = Buffer.from(base64Data, 'base64');
             const uniqueFileName = `bukti_${Date.now()}_${fileName.replace(/\s+/g, '_')}`;
 
+            // Upload ke Supabase Storage (Bucket: bukti-transfer)
             const { error: uploadError } = await supabase.storage
                 .from('bukti-transfer')
-                .upload(uniqueFileName, fileBuffer, { contentType: fileType, upsert: true });
+                .upload(uniqueFileName, fileBuffer, { 
+                    contentType: fileType, 
+                    upsert: true 
+                });
 
             if (!uploadError) {
-                const { data: urlData } = supabase.storage.from('bukti-transfer').getPublicUrl(uniqueFileName);
+                // Ambil link publik gambar yang baru diupload
+                const { data: urlData } = supabase.storage
+                    .from('bukti-transfer')
+                    .getPublicUrl(uniqueFileName);
                 publicFileUrl = urlData.publicUrl;
+            } else {
+                console.error('Upload Error:', uploadError.message);
             }
         }
-        // Hanya kembalikan link file ke frontend, tidak memanggil Fonnte
+        
+        // Kembalikan URL gambar ke frontend untuk dirangkai ke pesan WhatsApp
         res.status(200).json({ success: true, fileUrl: publicFileUrl });
     } catch (error) {
+        console.error('Server Upload Error:', error);
         res.status(500).json({ error: error.message });
     }
 });
+
+const PORT = process.env.PORT || 3000;
+
+// Hindari bentrok port di Vercel/Hosting
+if (process.env.NODE_ENV !== 'production') {
+    app.listen(PORT, () => {
+        console.log(`Server Backend berjalan di port ${PORT}`);
+    });
+}
 
 module.exports = app;
