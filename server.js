@@ -59,16 +59,20 @@ app.post('/api/get-token', async (req, res) => {
 // ==========================================
 app.get('/api/progress', async (req, res) => {
     try {
-        // Ambil semua data transaksi yang berstatus LUNAS
         const { data, error } = await supabase
             .from('transaksi')
             .select('luas_meter')
-            .eq('status', 'LUNAS');
+            .ilike('status', 'lunas');
             
-        if (error) throw error;
+        // Jika ada kendala dari Supabase, cetak detailnya ke terminal dan hentikan proses
+        if (error) {
+            console.error("Detail Error Supabase:", error.message || error);
+            return res.status(500).json({ error: error.message });
+        }
         
-        // Hitung total meter yang terkumpul (Target 2.805 m2, Harga 800rb)
-        const totalTerkumpul = data.reduce((sum, item) => sum + Number(item.luas_meter), 0);
+        // Gunakan pengaman (data || []) agar tidak crash jika data kosong/null
+        const safeData = data || [];
+        const totalTerkumpul = safeData.reduce((sum, item) => sum + Number(item.luas_meter), 0);
         const totalRupiah = totalTerkumpul * 800000;
         
         res.json({
